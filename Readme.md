@@ -1,19 +1,18 @@
 # Context-Aware Dynamic Graph Learning for Multimodal Emotion Recognition with Missing Modalities
 
-Official PyTorch implementation for ICASSP 2026 submission.
+## Abstract
 
-## 📌 Abstract
+We introduce a novel framework for multimodal emotion recognition that effectively handles missing modality scenarios.
+Our approach combines adaptive dialogue graphs, LLM-guided context extraction, and cross-modal semantic alignment with dynamic graph ODEs, achieving state-of-the-art results on IEMOCAP and MELD.
 
-We propose a novel framework that combines context-aware dynamic graph learning with multimodal imagination for robust emotion recognition under missing modality conditions. Our approach leverages LLM-guided semantic extraction and graph neural ODEs to maintain high performance even when up to 67% of modalities are unavailable.
-
-## 🎯 Main Results
+## Main Results
 
 Performance on multimodal emotion recognition benchmarks:
 
-| Dataset | Complete | 1 Missing | 2 Missing |
-|---------|----------|-----------|-----------|
-| IEMOCAP | 84.2%    | 76.8%     | 65.5%     |
-| MELD    | 65.8%    | 60.3%     | 51.4%     |
+| Dataset | Complete |Average(Acc)|Average(F1)| 
+|---------|----------|------------|-----------|
+| IEMOCAP | 73.63    | 69.16      | 73.74     |
+| MELD    | 65.8%    | 69.13      | 70.22     |
 
 ## 🚀 Quick Start
 
@@ -87,15 +86,8 @@ python scripts/evaluate.py --checkpoint path/to/model.pth
 
 ## 📝 Citation
 
-If you find this work useful, please cite:
-```bibtex
-@inproceedings{cadgl2026icassp,
-  title={Context-Aware Dynamic Graph Learning for Multimodal Emotion Recognition with Missing Modalities},
-  author={[Authors]},
-  booktitle={ICASSP 2026},
-  year={2026}
-}
-```
+This work is currently **under review**.  
+A full citation will be provided upon paper acceptance.  
 
 ## 📄 License
 
@@ -103,12 +95,8 @@ This project is released for academic research use only. For commercial use, ple
 
 ## 📧 Contact
 
-For questions and collaborations, please open an issue or contact us at [email].
+For questions and collaborations, please open an issue or contact us at [rlaalfl05043@gmail.com].
 
-## 🔄 Updates
-
-- **[Date]**: Code release (planned after acceptance)
-- **[Date]**: Initial repository setup
 
 ---
 
