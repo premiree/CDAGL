@@ -1,0 +1,74 @@
+# Model Architecture
+model:
+  name: CADGL
+  
+  # Input dimensions
+  audio_dim: 74        # Acoustic features dimension
+  visual_dim: 342      # Visual features dimension  
+  text_dim: 768        # Text features dimension (BERT)
+  
+  # Hidden dimensions
+  hidden_dim: 512      # Hidden layer dimension
+  final_dim: 1536      # Final feature dimension before classification
+  
+  # Model components
+  num_layers: 3        # Number of graph layers
+  dropout: 0.3         # Dropout rate
+  
+  # Task specific
+  num_classes: 7       # Number of emotion classes
+  num_speakers: 10     # Maximum number of speakers (dataset dependent)
+
+# Training Configuration
+training:
+  # Basic settings
+  num_epochs: 50
+  batch_size: 32
+  learning_rate: 0.0001  # Starting learning rate
+  weight_decay: 0.00001
+  
+  # Loss weights (see paper for optimal values)
+  lambda_cls: 1.0      # Classification loss weight
+  lambda_recon: null   # Reconstruction loss weight (see paper)
+  lambda_align: null   # Alignment loss weight (see paper)
+  lambda_consist: null # Consistency loss weight (see paper)
+  
+  # Training strategy
+  missing_rate: 0.3    # Probability of missing modality during training
+  curriculum: false    # Enable curriculum learning (details in paper)
+  
+  # Checkpointing
+  save_interval: 10    # Save checkpoint every N epochs
+  early_stopping: true # Enable early stopping
+  patience: 15         # Early stopping patience
+
+# Data Configuration
+data:
+  dataset: IEMOCAP     # Dataset name
+  data_path: null      # Path to preprocessed data
+  max_seq_len: 128     # Maximum sequence length
+  
+  # Preprocessing (details omitted - see paper)
+  use_augmentation: false
+  normalize: true
+
+# Evaluation
+evaluation:
+  metrics: ['accuracy', 'f1_weighted', 'f1_macro']
+  test_scenarios:      # Missing modality scenarios to test
+    - complete         # All modalities available
+    - audio_missing    # Only audio missing
+    - visual_missing   # Only visual missing
+    - text_missing     # Only text missing
+
+# Hardware
+device:
+  cuda: true
+  gpu_id: 0
+  num_workers: 4
+
+# Logging
+logging:
+  use_wandb: false     # Enable Weights & Biases logging
+  project_name: cadgl-icassp2026
+  log_interval: 10     # Log every N batches
