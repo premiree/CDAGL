@@ -10,6 +10,7 @@ Our approach combines adaptive dialogue graphs, LLM-guided context extraction, a
   <img src="assets/overview_model.png" width="800px">
   <p><i>Overview of our proposed framework. The model first constructs a conversational graph, then reconstructs missing modalities using LLM-guided features and alignment modules before final emotion classification.</i></p>
 </div>
+
 ## Main Results
 
 Performance on multimodal emotion recognition benchmarks:
